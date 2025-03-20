@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './LetterGrid.module.css';
 
-const LetterGrid = ({ highlightedCoordinates, gridSize}) => {
+const LetterGrid = ({ highlightedCoordinates, gridSize }) => {
   const totalCells = gridSize * gridSize;
 
-  // Generate a random letter for each cell.
-  const letters = Array.from({ length: totalCells }, () =>
-    String.fromCharCode(65 + Math.floor(Math.random() * 26))
-  );
+  const givenString = "NODESaaCOMMINGaaSOONaaaaaa"; 
 
+  const processedString = givenString.split('').map(letter => {
+    // If the letter is uppercase (A-Z), keep it; otherwise, replace it with a random uppercase letter
+    return (letter >= 'A' && letter <= 'Z') ? letter : String.fromCharCode(65 + Math.floor(Math.random() * 26));
+  }).join('');
+
+  const repeatedLetters = Array.from({ length: totalCells }, (_, i) =>
+    processedString[i % processedString.length]
+  );
   // Compute highlighted indexes based on provided coordinates.
   const highlightedIndexes = highlightedCoordinates.length > 0 
     ? new Set(highlightedCoordinates.map(({ x, y }) => y * gridSize + x))
@@ -23,7 +28,7 @@ const LetterGrid = ({ highlightedCoordinates, gridSize}) => {
           gridTemplateRows: `repeat(${gridSize}, 1fr)`
         }}
       >
-        {letters.map((letter, index) => (
+        {repeatedLetters.map((letter, index) => (
           <div
             key={index}
             className={`${styles.gridCell} ${highlightedIndexes.has(index) ? styles.highlightedCell : ''}`}

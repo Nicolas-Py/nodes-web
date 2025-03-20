@@ -14,7 +14,7 @@ function getCircleCoordinates(center: { x: number, y: number }, radius: number, 
 export default function Home() {
   const gridSize = 50;
   const circleCenter = { x: Math.floor(gridSize / 2), y: Math.floor(gridSize / 2) };
-  const circleRadius = 15; // Adjust radius as needed
+  const circleRadius = 20; 
   
   
   const coordinatesToHighlight = getCircleCoordinates(circleCenter, circleRadius, gridSize);
