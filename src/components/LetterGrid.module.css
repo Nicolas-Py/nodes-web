@@ -1,0 +1,24 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+  }
+  
+  .gridContainer {
+    display: grid;
+    gap: 10px; /* Adjust gap as needed for spacing */
+  }
+  
+  .gridCell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;  /* Fixed size for each cell (adjust as needed) */
+    height: 40px;
+    border: 1px solid #000;  /* Optional: add a border */
+  }
+  
+  .highlightedCell {
+    background-color: yellow;  /* Highlight style (adjust as needed) */
+  }
