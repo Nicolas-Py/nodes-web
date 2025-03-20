@@ -4,16 +4,27 @@ import styles from './LetterGrid.module.css';
 const LetterGrid = ({ highlightedCoordinates, gridSize }) => {
   const totalCells = gridSize * gridSize;
 
-  const givenString = "NODESaaCOMMINGaaSOONaaaaaa"; 
+  function buildGridString(totalCells) {
+    const fixedWords = ["NODES", "COMMING", "SOON"];
+    let result = "";
+    while (result.length < totalCells) {
+      for (let i = 0; i < fixedWords.length && result.length < totalCells; i++) {
+        result += fixedWords[i];
+        if (result.length < totalCells) {
+          const gapLength = Math.floor(Math.random() * 4) + 1; 
+          for (let j = 0; j < gapLength && result.length < totalCells; j++) {
+            const randomLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
+            result += randomLetter;
+          }
+        }
+      }
+    }
+    return result.slice(0, totalCells);
+  }
 
-  const processedString = givenString.split('').map(letter => {
-    // If the letter is uppercase (A-Z), keep it; otherwise, replace it with a random uppercase letter
-    return (letter >= 'A' && letter <= 'Z') ? letter : String.fromCharCode(65 + Math.floor(Math.random() * 26));
-  }).join('');
-
-  const repeatedLetters = Array.from({ length: totalCells }, (_, i) =>
-    processedString[i % processedString.length]
-  );
+  const gridString = buildGridString(totalCells);
+  const repeatedLetters = gridString.split('');
+  
   // Compute highlighted indexes based on provided coordinates.
   const highlightedIndexes = highlightedCoordinates.length > 0 
     ? new Set(highlightedCoordinates.map(({ x, y }) => y * gridSize + x))

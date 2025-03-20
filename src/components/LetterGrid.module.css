@@ -16,12 +16,11 @@
     align-items: center;
     width: 10px;  /* Fixed size for each cell (adjust as needed) */
     height: 10px;
-    border: 1px solid #000;  /* Optional: add a border */
     font-size: 0.5rem;
   }
   
   .highlightedCell {
-    font-size: 1rem;  
+    font-size: 0.8rem;  
   }
 
 @media (max-width: 600px) {
@@ -33,5 +32,9 @@
     width: 4px;  /* Adjust mobile grid cell width */
     height: 4px; /* Adjust mobile grid cell height */
     font-size: 0.2rem;
+  }
+
+  .highlightedCell {
+    font-size: 0.4rem;  
   }
 }
