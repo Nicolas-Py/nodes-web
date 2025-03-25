@@ -2,39 +2,40 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Full viewport height */
-  }
+    height: 100vh;
+    width: 100vw;
+}
   
-  .gridContainer {
+.gridContainer {
     display: grid;
-    gap: 10px; /* Adjust gap as needed for spacing */
-  }
+    gap: 0.5rem; /* Adjust gap as needed for spacing */
+}
   
-  .gridCell {
+.gridCell {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 10px;  /* Fixed size for each cell (adjust as needed) */
-    height: 10px;
+    width: 0.5rem;  /* Fixed size for each cell (adjust as needed) */
+    height: 0.5rem;
     font-size: 0.5rem;
-  }
+}
   
-  .highlightedCell {
+.highlightedCell {
     font-size: 0.8rem;  
-  }
+}
 
 @media (max-width: 600px) {
-  .gridContainer {
-    gap: 2px;  /* Adjust mobile gap as needed */
-  }
+    .gridContainer {
+        gap: 2px;  /* Adjust mobile gap as needed */
+    }
   
-  .gridCell {
-    width: 4px;  /* Adjust mobile grid cell width */
-    height: 4px; /* Adjust mobile grid cell height */
-    font-size: 0.2rem;
-  }
+    .gridCell {
+        width: 4px;  /* Adjust mobile grid cell width */
+        height: 4px; /* Adjust mobile grid cell height */
+        font-size: 0.2rem;
+    }
 
-  .highlightedCell {
-    font-size: 0.4rem;  
-  }
+    .highlightedCell {
+        font-size: 0.4rem;  
+    }
 }
