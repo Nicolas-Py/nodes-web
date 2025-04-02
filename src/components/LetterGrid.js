@@ -6,7 +6,7 @@ const LetterGrid = ({ highlightedCoordinates, gridSize }) => {
 
   // Returns the current countdown as an 8-character string (DDHHMMSS)
   function getCountdownString() {
-    const countdownTarget = new Date('2025-04-31T00:00:00').getTime();
+    const countdownTarget = new Date('2025-05-01T00:00:00').getTime();
     const now = new Date().getTime();
     let timeLeft = Math.max(0, countdownTarget - now);
 
